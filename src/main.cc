@@ -5,16 +5,14 @@
 
 int main(int argc, char** argv) // int is the count of cmd line arguments, char is an array where the args are stored.
 {
-    //function declarations
+    // callbacks
     void resize(int, int);
     void display();
     void keyboard(unsigned char, int, int);
-    //void timer(int);
     void initialise();
 
     glutInit(&argc, argv);
-    //single buffer is used when no animation, double buffer is used when there is. 
-    glutInitDisplayMode(GL_DOUBLE | GLUT_RGB); 
+    glutInitDisplayMode(GL_DOUBLE | GLUT_RGB); // double for frame forward and back buffers.
     glutInitWindowSize(600,600);
     glutInitWindowPosition(0,0);
     glutCreateWindow("test");
@@ -22,7 +20,6 @@ int main(int argc, char** argv) // int is the count of cmd line arguments, char 
     glutDisplayFunc(display);
     glutKeyboardFunc(keyboard);
     glutReshapeFunc(resize);
-    //glutTimerFunc(0, timer, 0);
     initialise();
 
     glutMainLoop();
@@ -35,7 +32,7 @@ void initialise()
     glClearColor(0.0, 0.0, 0.0, 1.0); // color val used by clear function to clear the color buffer. pretty much, the bg.
 }
 
-void resize(int width, int height) // callback is comm between os and window
+void resize(int width, int height) 
 {
     if (height == 0)
     {
@@ -46,10 +43,9 @@ void resize(int width, int height) // callback is comm between os and window
         width = 1;
     }
 
-    glViewport(0, 0, (GLsizei)width, (GLsizei)height); // passing width and height the changed width and height.
+    glViewport(0, 0, (GLsizei)width, (GLsizei)height); 
     glMatrixMode(GL_PROJECTION); // modern matrix stores objs, scaling and rotation, this is just projection.
-    glLoadIdentity(); // specify values for projection matrix
-    //gluPerspective(150, (float)width/(float)height, 0.1, 100.0); // near plane and far plane, this is the angle inbetween, distance from viewer to the near plane and then far distance,
+    glLoadIdentity(); 
     gluOrtho2D(-10,10,-10,10);
     glMatrixMode(GL_MODELVIEW);
 }
