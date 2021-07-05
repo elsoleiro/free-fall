@@ -1,13 +1,9 @@
-#include "../include/freeglut.h"
-#include "../include/gl.h"
-#include <math.h>
-#define _USE_MATH_DEFINES
+#include "../include/display.h"
 
 int main(int argc, char** argv) // int is the count of cmd line arguments, char is an array where the args are stored.
 {
     // callbacks
     void resize(int, int);
-    void display();
     void keyboard(unsigned char, int, int);
     void initialise();
 
@@ -50,7 +46,7 @@ void resize(int width, int height)
     glMatrixMode(GL_MODELVIEW);
 }
 
-
+/**
 
 void drawCircle(GLfloat x, GLfloat y, GLfloat r)
 {
@@ -80,6 +76,7 @@ void display()
     glEnd();
     glutSwapBuffers();
 }
+**/
 
 void keyboard(unsigned char key, int x, int y)
 {
