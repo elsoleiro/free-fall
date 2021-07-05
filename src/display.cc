@@ -4,7 +4,9 @@ void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
-    drawCircle(0, 0, 3);
+    //drawCircle(0, 0, 3);
+    Circle c1;
+    c1.setX(250);
     glEnd();
     glutSwapBuffers();
 }
@@ -29,7 +31,7 @@ void resize(int width, int height)
     glViewport(0, 0, (GLsizei)width, (GLsizei)height); 
     glMatrixMode(GL_PROJECTION); // modern matrix stores objs, scaling and rotation, this is just projection.
     glLoadIdentity(); 
-    gluOrtho2D(-10,10,-10,10);
+    gluOrtho2D(0,100,0,100);
     glMatrixMode(GL_MODELVIEW);
 }
 

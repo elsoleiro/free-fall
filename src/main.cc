@@ -4,6 +4,7 @@ int main(int argc, char** argv) // int is the count of cmd line arguments, char 
 {
     // callback - make controls.h later if req.
     void keyboard(unsigned char, int, int);
+    void timer();
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GL_DOUBLE | GLUT_RGB); // double for frame forward and back buffers.

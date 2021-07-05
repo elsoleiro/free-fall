@@ -7,14 +7,15 @@ LDFLAGS = -lglut -lGL -lGLU
 build: $(OBJ) 
 	$(CC) $(LDFLAGS) $(OBJ) -o $@
 
-main.o: src/main.cc $(HEADER) 
-	$(CC) $(CFLAGS) $< -o $@ 
+
+primitives.o: src/primitives.cc $(HEADER)
+	$(CC) $(CFLAGS) $< -o $@
 
 display.o: src/display.cc $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@
 
-primitives.o: src/primitives.cc $(HEADER)
-	$(CC) $(CFLAGS) $< -o $@
+main.o: src/main.cc $(HEADER) 
+	$(CC) $(CFLAGS) $< -o $@ 
 
 clean:
 	rm -f *o build

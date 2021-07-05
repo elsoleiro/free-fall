@@ -20,4 +20,3 @@ void drawCircle(GLfloat x, GLfloat y, GLfloat r)
 }
 
 
-
