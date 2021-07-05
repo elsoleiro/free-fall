@@ -8,7 +8,7 @@ int main(int argc, char** argv) // int is the count of cmd line arguments, char 
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GL_DOUBLE | GLUT_RGB); // double for frame forward and back buffers.
-    glutInitWindowSize(600,600);
+    glutInitWindowSize(500,500);
     glutInitWindowPosition(0,0);
     glutCreateWindow("Free-fall");
 

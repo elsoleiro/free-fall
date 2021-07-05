@@ -12,27 +12,32 @@ class Shape {
         void setX(GLfloat x_val) {
             x = x_val;
         }
-    protected:
-           GLfloat x; 
-};
 
-class Circle: public Shape {
-    public:
-};
-
-/**
-class Shape {
-    public:
-        void setX(GLfloat x_val) {
-            x = x_val;
+        void setY(GLfloat y_val) {
+            y = y_val;
         }
-    protected:
-           GLfloat x; 
+        GLfloat x; 
+        GLfloat y;
 };
 
 class Circle: public Shape {
     public:
-        void draw(void) {
+        void setR(GLfloat r_val) {
+            r = r_val;
+        }
+
+        void setTriangles(GLfloat tri) {
+            triangles = tri;
+        }
+
+        GLfloat getX() {
+            return x;
+        }
+        GLfloat getR() {
+            return r;
+        }
+
+        void draw(GLfloat x, GLfloat y, GLfloat r, GLfloat triangles) {
             int i;
             GLfloat tau = 2.0f * M_PI;
 
@@ -47,12 +52,8 @@ class Circle: public Shape {
                 }
             }
         }
+        GLfloat r;
+        GLfloat triangles;
 };
-
-
-
-**/
-
-
 
 #endif
