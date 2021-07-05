@@ -3,10 +3,6 @@
 #include <math.h>
 #define _USE_MATH_DEFINES
 
-float x_position = -10;
-int state = 1;
-
-
 int main(int argc, char** argv) // int is the count of cmd line arguments, char is an array where the args are stored.
 {
     //function declarations
@@ -79,25 +75,13 @@ void drawCircle(GLfloat x, GLfloat y, GLfloat r)
     }
 }
 
-// FIND THE MINIMUM AMOUNT OF TRIANGLES REQUIRED TO BUILD CIRCLE FOR RADIUS N
-// USE THE ANIMATION STUFF TO MAKE IT ANIMATE ONE TRIANGLE AT A TIME
 
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
 	drawCircle(0, 0, 3);
-
-/**
-    glBegin(GL_POLYGON);
-    glVertex2f(x_position,1.0);
-    glVertex2f(x_position,-1.0);
-    glVertex2f(x_position+2,-1.0);
-    glVertex2f(x_position+2,1.0);
-**/
-
     glEnd();
-
     glutSwapBuffers();
 }
 
@@ -112,17 +96,3 @@ void keyboard(unsigned char key, int x, int y)
     }
 }
 
-void timer(int)
-{
-    glutPostRedisplay();
-    glutTimerFunc(1000/60, timer, 0);
-    
-    switch(state)
-    {
-        case 1:
-            if(x_position < -1)
-            {
-                x_position += 0.15;
-            }
-    }
-}
