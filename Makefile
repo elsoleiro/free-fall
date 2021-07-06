@@ -1,6 +1,6 @@
 CC = g++
 OBJ = main.o display.o primitives.o
-HEADER = include/freeglut.h include/glut.h include/display.h include/primitives.h
+HEADER = include/GL/freeglut.h include/GL/glut.h include/display.h include/primitives.h
 CFLAGS = -c -Wall -Iinclude/
 LDFLAGS = -lglut -lGL -lGLU
 

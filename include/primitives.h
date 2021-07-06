@@ -2,8 +2,8 @@
 #define DRAWCIRCLE_H
 
 #include <math.h>
-#include "freeglut.h"
-#include "glut.h"
+#include "GL/freeglut.h"
+#include "GL/glut.h"
 
 class Shape {
     public:
