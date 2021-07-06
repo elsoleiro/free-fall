@@ -7,12 +7,14 @@
 
 class Shape {
     public:
+     //   GLfloat pos;
         GLfloat x; 
         GLfloat y;
 
         Shape (GLfloat x_val, GLfloat y_val):
             x (x_val),
             y (y_val)
+    //       pos (pos_val)
     {}
 };
 
@@ -44,10 +46,12 @@ class Circle: Shape {
         }
 
         void fall() {
+            GLfloat vy = 0.0;
             if(y > r)
             {
                 // y = y - the distance travelled in the frame refresh, which is 16.6 frames per millisecond
-                y = y - (4.9*((0.16)*(0.16)));
+                y = y - (vy*(0.16) + 4.9*((0.16)*(0.16)));
+                vy = vy + 9.8*(0.16);
             }
         }
 };

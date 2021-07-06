@@ -1,7 +1,7 @@
 #include "../include/display.h"
 #include <iostream>
 
-Circle c1(250,500,40,500);
+Circle c1(25,50,2,500);
 
 void display()
 {
@@ -34,7 +34,7 @@ void resize(int width, int height)
     glViewport(0, 0, (GLsizei)width, (GLsizei)height); 
     glMatrixMode(GL_PROJECTION); // modern matrix stores objs, scaling and rotation, this is just projection.
     glLoadIdentity(); 
-    gluOrtho2D(0,500,0,500);
+    gluOrtho2D(0,50,0,50);
     glMatrixMode(GL_MODELVIEW);
 }
 

@@ -7,17 +7,18 @@ int main(int argc, char** argv) // int is the count of cmd line arguments, char 
     void keyboard(unsigned char, int, int);
 
     glutInit(&argc, argv);
-    glutInitDisplayMode(GL_DOUBLE | GLUT_RGB); // double for frame forward and back buffers.
+    glutInitDisplayMode(GLUT_DOUBLE| GLUT_RGB); // double for frame forward and back buffers.
     glutInitWindowSize(500,500);
     glutInitWindowPosition(0,0);
     glutCreateWindow("Free-fall");
 
-    glutDisplayFunc(display);
 
-    glutTimerFunc(0, timer, 0);
     glutKeyboardFunc(keyboard);
     glutReshapeFunc(resize);
     initialise();
+
+    glutDisplayFunc(display);
+    glutTimerFunc(1000/60, timer, 0);
 
     glutMainLoop();
 
