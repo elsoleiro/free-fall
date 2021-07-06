@@ -5,12 +5,10 @@ void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
-    Circle c1;
-    c1.setX(250);
-    c1.setY(250);
-    c1.setR(3);
-    c1.setTriangles(500);
-    c1.draw(c1.x, c1.y, c1.r, c1.triangles);
+
+    Circle c1(100,100,3,500);
+    c1.draw();
+
     glEnd();
     glutSwapBuffers();
 }
