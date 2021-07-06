@@ -33,7 +33,7 @@ class Circle: Shape {
 
             glBegin(GL_TRIANGLE_FAN);
             {
-                glVertex2f(x,y);
+                glVertex2f(x,y); // origin
                 for(i = 0; i <= triangles; i++)
                 {
                     glVertex2f(
@@ -43,14 +43,13 @@ class Circle: Shape {
             }
         }
 
-        void move() {
-            if(y > 1)
+        void fall() {
+            if(y > r)
             {
-                y -= 1;
+                // y = y - the distance travelled in the frame refresh, which is 16.6 frames per millisecond
+                y = y - (4.9*((0.16)*(0.16)));
             }
         }
-            
-
 };
 
 #endif

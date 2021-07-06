@@ -1,14 +1,15 @@
 #include "../include/display.h"
 #include <iostream>
 
-Circle c1(250,250,3,500);
+Circle c1(250,500,40,500);
+
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
 
     c1.draw();
-    c1.move();
+    c1.fall();
     glEnd();
     glutSwapBuffers();
 }
@@ -36,6 +37,7 @@ void resize(int width, int height)
     gluOrtho2D(0,500,0,500);
     glMatrixMode(GL_MODELVIEW);
 }
+
 
 
 
