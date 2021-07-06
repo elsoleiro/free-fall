@@ -5,8 +5,6 @@
 #include "freeglut.h"
 #include "glut.h"
 
-void drawCircle(GLfloat x, GLfloat y, GLfloat r);
-
 class Shape {
     public:
         void setX(GLfloat x_val) {
@@ -16,6 +14,7 @@ class Shape {
         void setY(GLfloat y_val) {
             y = y_val;
         }
+
         GLfloat x; 
         GLfloat y;
 };
@@ -52,6 +51,7 @@ class Circle: public Shape {
                 }
             }
         }
+
         GLfloat r;
         GLfloat triangles;
 };
