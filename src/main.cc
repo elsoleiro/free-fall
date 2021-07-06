@@ -1,5 +1,7 @@
 #include "../include/display.h"
 #include "../include/timer.h"
+#include <chrono>
+
 
 int main(int argc, char** argv) // int is the count of cmd line arguments, char is an array where the args are stored.
 {
@@ -18,7 +20,7 @@ int main(int argc, char** argv) // int is the count of cmd line arguments, char 
     initialise();
 
     glutDisplayFunc(display);
-    glutTimerFunc(1000/60, timer, 0);
+    glutTimerFunc(1, timer, 0);
 
     glutMainLoop();
 

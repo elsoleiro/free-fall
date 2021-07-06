@@ -28,6 +28,13 @@ class Circle: Shape {
             r (r_val),
             triangles (tri_val)
     {}
+        int getY() {
+            return y;
+        }
+
+        int getR() {
+            return r;
+        }
 
         void draw() {
             int i;
@@ -45,13 +52,11 @@ class Circle: Shape {
             }
         }
 
-        void fall() {
-            GLfloat vy = 0.0;
-            if(y > r)
+        void fall(double t) {
+
+            if(y >= r)
             {
-                // y = y - the distance travelled in the frame refresh, which is 16.6 frames per millisecond
-                y = y - (vy*(0.16) + 4.9*((0.16)*(0.16)));
-                vy = vy + 9.8*(0.16);
+                y = y - 4.9*(((t)*(t))/100);
             }
         }
 };

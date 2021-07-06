@@ -1,15 +1,25 @@
 #include "../include/display.h"
 #include <iostream>
+#include <chrono>
 
-Circle c1(25,50,2,500);
 
+auto start = std::chrono::steady_clock::now();
+Circle c1(250,505,4,500);
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
-
     c1.draw();
-    c1.fall();
+    auto end = std::chrono::steady_clock::now();
+    std::chrono::duration<double> time = end-start;
+
+    c1.fall(time.count());
+    if ((int)c1.getY() <= c1.getR())
+    {
+        auto endProg = std::chrono::steady_clock::now();
+        std::chrono::duration<double> endtime = endProg-start;
+        std::cout << endtime.count() << std::endl;
+    }
     glEnd();
     glutSwapBuffers();
 }
@@ -34,7 +44,7 @@ void resize(int width, int height)
     glViewport(0, 0, (GLsizei)width, (GLsizei)height); 
     glMatrixMode(GL_PROJECTION); // modern matrix stores objs, scaling and rotation, this is just projection.
     glLoadIdentity(); 
-    gluOrtho2D(0,50,0,50);
+    gluOrtho2D(0,500,0,500);
     glMatrixMode(GL_MODELVIEW);
 }
 
