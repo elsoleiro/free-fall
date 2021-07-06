@@ -1,14 +1,14 @@
 #include "../include/display.h"
 #include <iostream>
 
+Circle c1(250,250,3,500);
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
 
-    Circle c1(100,100,3,500);
     c1.draw();
-
+    c1.move();
     glEnd();
     glutSwapBuffers();
 }

@@ -43,6 +43,13 @@ class Circle: Shape {
             }
         }
 
+        void move() {
+            if(y > 1)
+            {
+                y -= 1;
+            }
+        }
+            
 
 };
 
