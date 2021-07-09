@@ -1,12 +1,35 @@
+#include "../include/timer.h"
 #include "../include/display.h"
 #include <iostream>
 #include <chrono>
 
-
+Circle c1(250,504,4,500);
+// OUTSIDE GAME LOOP -- HOW LONG HAS THE PROGRAM BEEN RUNNING
 auto start = std::chrono::steady_clock::now();
-Circle c1(250,505,4,500);
+
+void gameLoop() {
+    // callback - make controls.h later if req.
+        void keyboard(unsigned char, int, int);
+
+        glutInitDisplayMode(GLUT_DOUBLE| GLUT_RGB); // double for frame forward and back buffers.
+        glutInitWindowSize(500,500);
+        glutInitWindowPosition(0,0);
+        glutCreateWindow("Free-fall");
+
+
+        glutKeyboardFunc(keyboard);
+        glutReshapeFunc(resize);
+        initialise();
+
+        glutDisplayFunc(display);
+        glutTimerFunc(1, timer, 0);
+
+        glutMainLoop();
+    };
+
 void display()
 {
+    // INSIDE LOOP
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
     c1.draw();
@@ -14,12 +37,14 @@ void display()
     std::chrono::duration<double> time = end-start;
 
     c1.fall(time.count());
+
     if ((int)c1.getY() <= c1.getR())
     {
         auto endProg = std::chrono::steady_clock::now();
         std::chrono::duration<double> endtime = endProg-start;
         std::cout << endtime.count() << std::endl;
     }
+
     glEnd();
     glutSwapBuffers();
 }

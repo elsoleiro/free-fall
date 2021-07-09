@@ -18,6 +18,13 @@ class Shape {
     {}
 };
 
+class Line: Shape {
+    public:
+        Line (GLfloat x, GLfloat y):
+            Shape(x,y)
+    {}
+};
+
 class Circle: Shape {
     public:
         GLfloat r;
