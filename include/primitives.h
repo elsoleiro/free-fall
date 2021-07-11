@@ -28,11 +28,13 @@ class Line: Shape {
 class Circle: Shape {
     public:
         GLfloat r;
+        GLfloat xy;
         GLfloat triangles;
 
-        Circle (GLfloat x, GLfloat y, GLfloat r_val, GLfloat tri_val):
+        Circle (GLfloat x, GLfloat y, GLfloat xy_val, GLfloat r_val, GLfloat tri_val):
             Shape (x, y),
             r (r_val),
+            xy (xy_val),
             triangles (tri_val)
     {}
         int getY() {
@@ -59,11 +61,18 @@ class Circle: Shape {
             }
         }
 
-        void fall(double t) {
+        void fall(double t, GLfloat dt) { // need to know x,y,dt
+            // riemann sum, euler integration
+            // we know the actual time, t, and the time between frames dt
+            GLfloat v = 9.8*t;
+            static GLfloat old_y = y; // single instance exists until EOF
 
-            if(y >= r)
+            if(y >= r) 
             {
-                y = y - 4.9*(((t)*(t))/100);
+                // instead of calcing the pos given some time, calc the velocity given some time. use that to update the position. we want to find delta y.
+                y -= v*dt;
+                // current height = last height + change in height
+                // this is an approximation of the derivative.
             }
         }
 };
